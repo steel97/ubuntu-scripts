@@ -1,6 +1,8 @@
 sudo apt-get update
-sudo apt-get install --assume-yes xfce4 xfce4-goodies xfce4-session
+sudo apt-get install --assume-yes xfce4
+sudo apt-get install --assume-yes xfce4-goodies
 sudo apt-get install --assume-yes tightvncserver
+sudo apt-get install --assume-yes xfce4-session
 sudo apt-get install --assume-yes firefox
 sudo /usr/bin/vncserver
 # ask to select password
