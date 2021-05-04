@@ -1,6 +1,6 @@
 sudo apt-get update
-sudo apt-get --assume-yes install xfce4 xfce4-goodies
-sudo apt-get --assume-yes install tightvncserver
+sudo apt-get install --assume-yes xfce4 xfce4-goodies
+sudo apt-get install --assume-yes tightvncserver
 sudo vncserver
 # ask to select password
 sudo vncserver -kill :1
