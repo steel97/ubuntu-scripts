@@ -1,9 +1,9 @@
 sudo apt-get update
 sudo apt-get install --assume-yes xfce4 xfce4-goodies
 sudo apt-get install --assume-yes tightvncserver
-sudo vncserver
+sudo /usr/bin/vncserver
 # ask to select password
-sudo vncserver -kill :1
+sudo /usr/bin/vncserver -kill :1
 sudo mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 
 sudo cat << EOF > ~/.vnc/xstartup
@@ -23,9 +23,9 @@ After=syslog.target network.target
 Type=forking
 User=root
 Group=root
-WorkingDirectory=/home/root
+WorkingDirectory=/home/
 
-PIDFile=/home/root/.vnc/%H:%i.pid
+PIDFile=/root/.vnc/%H:%i.pid
 ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
 ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x800 :%i
 ExecStop=/usr/bin/vncserver -kill :%i
@@ -33,6 +33,7 @@ ExecStop=/usr/bin/vncserver -kill :%i
 [Install]
 WantedBy=multi-user.target
 EOF
+
 
 sudo systemctl daemon-reload
 sudo systemctl enable vncserver@1.service
